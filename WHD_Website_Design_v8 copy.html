@@ -514,8 +514,31 @@ footer{background:var(--footer-bg);padding:64px 80px 0;}
     <button class="nav-login-toggle" onclick="toggleLogin()">
       <span class="toggle-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg></span><span class="toggle-label">Login</span>
     </button>
-  </div>
+  
+  <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="Open menu">&#9776;</button></div>
 </nav>
+<div class="mobile-nav" id="mobileNav" onclick="if(event.target===this)toggleMobileNav()">
+  <div class="mobile-nav-panel">
+    <div class="mobile-nav-header">
+      <span class="mobile-nav-logo">WH<span>D</span></span>
+      <button class="mobile-nav-close" onclick="toggleMobileNav()">&#10005;</button>
+    </div>
+    <input type="text" class="mobile-nav-search" placeholder="Search products...">
+    <a class="mobile-nav-link" href="#" onclick="show('home');toggleMobileNav()">&#127968; Homepage</a>
+    <a class="mobile-nav-link" href="#" onclick="show('plp');toggleMobileNav()">&#128230; Category / Shop</a>
+    <a class="mobile-nav-link" href="#" onclick="show('pdp');toggleMobileNav()">&#128717; Product Detail</a>
+    <a class="mobile-nav-link" href="#" onclick="show('about');toggleMobileNav()">&#128172; About Us</a>
+    <a class="mobile-nav-link" href="#" onclick="show('contact');toggleMobileNav()">&#128222; Contact</a>
+    <a class="mobile-nav-link" href="#" onclick="show('privacy');toggleMobileNav()">&#128274; Privacy Policy</a>
+  </div>
+</div>
+<script>
+function toggleMobileNav(){
+  var nav = document.getElementById('mobileNav');
+  nav.classList.toggle('open');
+  document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+}
+</script>
 
 <!-- HERO -->
 <div class="hero">
